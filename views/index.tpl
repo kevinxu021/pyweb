@@ -2,60 +2,32 @@
 <html>
 % include('header.tpl', title='Page Title')
 
-  <body
-    ng-app="MobileAngularUiExamples"
-    ng-controller="MainController"
-    >
+  <body>
+% include('menu-top.tpl', title='Page Title')
+<div class="bs-docs-header" id="content" tabindex="-1">
+      <div class="container">
+        <h1>速卖通八卦镜</h1>
+        <p>速卖通八卦镜 为 速卖通平台赋予了“生命”。可以简单地完成大数据的管理分析。</p>
 
-    <!-- Sidebars -->
-    <div ng-include="'sidebar.html'"
-            ui-track-as-search-param='true'
-            class="sidebar sidebar-left"></div>
-
-    <div ng-include="'sidebarRight.html'"
-            class="sidebar sidebar-right"></div>
-
-    <div class="app" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ng-swipe-left='Ui.turnOff("uiSidebarLeft")'>
-
-      <!-- Navbars -->
-
-      <div class="navbar navbar-app navbar-absolute-top">
-        <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
-          Mobile Angular UI
-        </div>
-        <div class="btn-group pull-left">
-          <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
-            <i class="fa fa-bars"></i> Menu
-          </div>
-        </div>
-        <div class="btn-group pull-right" ui-yield-to="navbarAction">
-          <div ui-toggle="uiSidebarRight" class="btn">
-            <i class="fa fa-comment"></i> Chat
-          </div>
-        </div>
       </div>
+    </div>
+<div class="container bs-docs-container">
 
-      <div class="navbar navbar-app navbar-absolute-bottom">
-        <div class="btn-group justified">
-          <a href="http://mobileangularui.com/" class="btn btn-navbar"><i class="fa fa-home fa-navbar"></i> Docs</a>
-          <a href="https://github.com/mcasimir/mobile-angular-ui" class="btn btn-navbar"><i class="fa fa-github fa-navbar"></i> Sources</a>
-          <a href="https://github.com/mcasimir/mobile-angular-ui/issues" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> Issues</a>
+
+      <div class="row">
+        <div class="col-md-9" role="main">
+            % include('content.tpl', title='Page Title')
+
         </div>
+   <div class="col-md-3" role="complementary">
+% include('menu-right.tpl', title='Page Title')
+        </div>
+
       </div>
+    </div>
 
-      <!-- App Body -->
-      <div class="app-body" ng-class="{loading: loading}">
-        <div ng-show="loading" class="app-content-loading">
-          <i class="fa fa-spinner fa-spin loading-spinner"></i>
-        </div>
-        <div class="app-content">
-          <ng-view></ng-view>
-        </div>
-      </div>
 
-    </div><!-- ~ .app -->
 
-    <div ui-yield-to="modals"></div>
 % include('footer.tpl', title='Page Title')
   </body>
 </html>
